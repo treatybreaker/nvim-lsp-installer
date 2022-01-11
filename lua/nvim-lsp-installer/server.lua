@@ -162,7 +162,7 @@ function M.Server:promote_install_dir(install_dir)
     -- 2. Move the temporary install dir to the final installation directory
     if platform.is_unix then
         -- Some Unix systems will raise an error when renaming a directory to a destination that does not already exist.
-        fs.mkdir(self.root_dir)
+        -- fs.mkdir(self.root_dir)
     end
     local rename_ok, rename_err = pcall(fs.rename, install_dir, self.root_dir)
     if not rename_ok then
