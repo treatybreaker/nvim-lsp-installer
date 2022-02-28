@@ -75,6 +75,10 @@ local function new_execution_context(suspend_fn, callback, ...)
     end
 end
 
+exports.run = function(suspend_fn, callback, ...)
+    return new_execution_context(suspend_fn, callback, ...)
+end
+
 exports.scope = function(suspend_fn)
     return function(...)
         return new_execution_context(suspend_fn, function() end, ...)
